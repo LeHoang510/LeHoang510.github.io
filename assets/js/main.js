@@ -162,14 +162,14 @@
   /**
    * Define projects
    */
-  const AI_projects = [
+  const projects = [
     {
       title: 'Image Retrieval System',
       img: 'assets/img/projects/AI/HCMAI.png',
       desc: "A system that can retrieve images from a database based on the user's input image",
       key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
       github: "https://github.com/LeHoang510/Image-Retrieval-System",
-      filter: "filter-ai"
+      filter: ["filter-ai"]
     },
     {
       title: 'End-to-End Machine Learning Pipeline',
@@ -177,7 +177,7 @@
       desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
       key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
       github: "https://github.com/LeHoang510/MLOPSVN",
-      filter: "filter-ai"
+      filter: ["filter-ai"]
     },
     {
       title: 'xAI for GAN',
@@ -185,7 +185,7 @@
       desc: "Explainable AI for Generative Adversarial Networks",
       key: "GAN, XAI, Python, Computer Vision, Pytorch",
       github: "https://github.com/LeHoang510/XAI-for-GAN",
-      filter: "filter-ai"
+      filter: ["filter-ai"]
     },
     {
       title: 'Sleep detection',
@@ -193,27 +193,79 @@
       desc: "Sleep detection",
       key: "Time series, Sklearn, Pandas, Polars, Numpy, Matplotlib, Seaborn",
       github: "https://github.com/LeHoang510/Sleep-detection",
-      filter: "filter-ai"
-    }
-  ]
-  const Software_projects = [
+      filter: ["filter-ai"]
+    },
     {
       title: 'Image Retrieval System',
       img: 'assets/img/projects/AI/HCMAI.png',
       desc: "A system that can retrieve images from a database based on the user's input image",
-      key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object Detection, ASR, Python",
+      key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
       github: "https://github.com/LeHoang510/Image-Retrieval-System",
-      filter: "filter-software"
-    }
-  ]
-  const Web_projects = [
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'End-to-End Machine Learning Pipeline',
+      img: 'assets/img/projects/AI/MLOPSVN.png',
+      desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
+      key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
+      github: "https://github.com/LeHoang510/MLOPSVN",
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'xAI for GAN',
+      img: 'assets/img/projects/AI/XAIGAN.jpg',
+      desc: "Explainable AI for Generative Adversarial Networks",
+      key: "GAN, XAI, Python, Computer Vision, Pytorch",
+      github: "https://github.com/LeHoang510/XAI-for-GAN",
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'Sleep detection',
+      img: 'assets/img/projects/AI/SleepDetection.png',
+      desc: "Sleep detection",
+      key: "Time series, Sklearn, Pandas, Polars, Numpy, Matplotlib, Seaborn",
+      github: "https://github.com/LeHoang510/Sleep-detection",
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'Image Retrieval System',
+      img: 'assets/img/projects/AI/HCMAI.png',
+      desc: "A system that can retrieve images from a database based on the user's input image",
+      key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
+      github: "https://github.com/LeHoang510/Image-Retrieval-System",
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'End-to-End Machine Learning Pipeline',
+      img: 'assets/img/projects/AI/MLOPSVN.png',
+      desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
+      key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
+      github: "https://github.com/LeHoang510/MLOPSVN",
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'xAI for GAN',
+      img: 'assets/img/projects/AI/XAIGAN.jpg',
+      desc: "Explainable AI for Generative Adversarial Networks",
+      key: "GAN, XAI, Python, Computer Vision, Pytorch",
+      github: "https://github.com/LeHoang510/XAI-for-GAN",
+      filter: ["filter-ai"]
+    },
+    {
+      title: 'Sleep detection',
+      img: 'assets/img/projects/AI/SleepDetection.png',
+      desc: "Sleep detection",
+      key: "Time series, Sklearn, Pandas, Polars, Numpy, Matplotlib, Seaborn",
+      github: "https://github.com/LeHoang510/Sleep-detection",
+      filter: ["filter-ai", "filter-web"]
+    },
     {
       title: 'Sudoku',
       img: 'assets/img/projects/Web/Sudoku.png',
       desc: "Basic sudoku game",
       key: "Angular, Spring boot, HTML, CSS, Bootstrap, Javascript, Typescript, Java, Design Pattern",
       github: "https://github.com/LeHoang510/Sudoku",
-      filter: "filter-web"
+      filter: ["filter-software"]
     },
     {
       title: 'Sample App',
@@ -221,69 +273,110 @@
       desc: "Basic social website",
       key: "Ruby, Rails, HTML, CSS, Bootstrap, Javascript, MVC Architecture, SQL",
       github: "https://github.com/LeHoang510/sample-app",
-      filter: "filter-web"
+      filter: ["filter-web", "filter-ai"]
     }
   ]
 
-  /** 
-   * Add projects to the portfolio section
-   */
-  function addProject(projects){
-    const projectSection = document.querySelector(".portfolio-container");
-    let projectHTML = projects.map(function(project){
-        return `
-        <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item ${project.filter}">
-          <a href="#" class="portfolio-link"> 
+  const portfolioContainer = document.querySelector('.portfolio-container');
+  const filters = document.querySelectorAll('#portfolio-flters li');
+  let currentFilter = '*';
+  let currentPage = 1;
+  const itemsPerPage = 8; // Number of items per page
+  
+  // Function to render projects based on filter and page
+  function renderProjects(filter, page) {
+    let filteredProjects = [];
+  
+    if (filter === '*') {
+      // Show all projects if no filter is selected
+      filteredProjects = projects;
+    } else {
+      // Filter projects that include the selected filter in their `filter` array
+      filteredProjects = projects.filter(project => project.filter.includes(filter));
+    }
+  
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedProjects = filteredProjects.slice(start, end);
+  
+    // Get current items
+    const currentItems = portfolioContainer.querySelectorAll('.portfolio-item');
+  
+    // Animate out current items
+    currentItems.forEach(item => {
+      item.classList.add('animate-out');
+    });
+  
+    // Wait for the transition to complete before removing the items
+    setTimeout(() => {
+      // Clear the container
+      portfolioContainer.innerHTML = '';
+  
+      // Add new items with animate-in class
+      paginatedProjects.forEach(project => {
+        const projectItem = document.createElement('div');
+        projectItem.className = `col-lg-3 col-md-6 col-sm-12 portfolio-item animate-in ${project.filter}`;
+        projectItem.innerHTML = `
+          <a href="portfolio-details.html" class="portfolio-link"> 
             <div class="portfolio-wrap">
-                <img src="${project.img}" class="portfolio-img" alt="">     
-                <i class='bx bxs-chevron-right-square icon-overlay' style="font-size: 100px;"></i>           
+              <img src="${project.img}" class="portfolio-img" alt="">     
+              <img src="assets/img/icon/eye.png" class="icon-overlay" alt="">
             </div>
           </a>
-
           <div class="portfolio-description">
-            <h6><strong>${project.title}</strong></h4>
-            <h7>${project.filter}</h7>
+            <h6><strong>${project.title}</strong></h6>
           </div>
-        </div>
-        `
-    })
-    projectHTML = projectHTML.join("");
-    projectSection.innerHTML += projectHTML;
-  }
-
-  addProject(AI_projects);
-  addProject(Web_projects)
-
-  
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+        `;
+        portfolioContainer.appendChild(projectItem);
       });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
+  
+      // Trigger the animate-in transition
+      setTimeout(() => {
+        const newItems = portfolioContainer.querySelectorAll('.portfolio-item');
+        newItems.forEach(item => {
+          item.classList.add('active');
         });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+      }, 50); // Small delay to ensure the DOM has updated
+  
+      // Update pagination
+      updatePagination(filteredProjects.length, page);
+    }, 500); // Match this delay with the CSS transition duration
+  }
+  
+  // Function to update pagination
+  function updatePagination(totalItems, currentPage) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const paginationContainer = document.querySelector('.pagination');
+    paginationContainer.innerHTML = '';
+  
+    if (totalPages > 1) {
+      for (let i = 1; i <= totalPages; i++) {
+        const pageItem = document.createElement('li');
+        pageItem.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        pageItem.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        pageItem.addEventListener('click', (e) => {
+          e.preventDefault();
+          renderProjects(currentFilter, i);
         });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
+        paginationContainer.appendChild(pageItem);
+      }
     }
-
+  }
+  
+  // Event listeners for filters
+  filters.forEach(filter => {
+    filter.addEventListener('click', (e) => {
+      e.preventDefault();
+      filters.forEach(f => f.classList.remove('filter-active'));
+      filter.classList.add('filter-active');
+      currentFilter = filter.getAttribute('data-filter');
+      currentPage = 1;
+      renderProjects(currentFilter, currentPage);
+    });
   });
+  
+  // Initial render
+  renderProjects(currentFilter, currentPage);
 
   /**
    * Initiate portfolio lightbox 
