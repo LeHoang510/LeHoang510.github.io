@@ -172,7 +172,7 @@
       filter: "filter-ai"
     },
     {
-      title: 'MLOPSVN',
+      title: 'End-to-End Machine Learning Pipeline',
       img: 'assets/img/projects/AI/MLOPSVN.png',
       desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
       key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
@@ -180,7 +180,7 @@
       filter: "filter-ai"
     },
     {
-      title: 'XAI for GAN',
+      title: 'xAI for GAN',
       img: 'assets/img/projects/AI/XAIGAN.jpg',
       desc: "Explainable AI for Generative Adversarial Networks",
       key: "GAN, XAI, Python, Computer Vision, Pytorch",
@@ -233,19 +233,17 @@
     let projectHTML = projects.map(function(project){
         return `
         <div class="col-lg-4 col-md-6 col-sm-12 portfolio-item ${project.filter}">
+          <a href="#" class="portfolio-link"> 
             <div class="portfolio-wrap">
-                <img src="${project.img}" class="img-fluid" alt="">
-                <div class="overlay"></div>
-                <div class="portfolio-description">
-                  <h4 class="text-center">${project.title}</h4>
-                  <!-- <p><strong>Description</strong>: ${project.desc}</p> -->
-                  <p><strong><em>Keyword</em></strong>: ${project.key}</p>
-                </div>
-                <div class="portfolio-links">
-                    <a href=${project.img} data-gallery="portfolioGallery" class="portfolio-lightbox" title="${project.desc}"><i class="bx bx-plus"></i></a>
-                    <a href=${project.github} title="More Details"><i class="bx bx-link"></i></a>
-                </div>
+                <img src="${project.img}" class="portfolio-img" alt="">     
+                <i class='bx bxs-chevron-right-square icon-overlay' style="font-size: 100px;"></i>           
             </div>
+          </a>
+
+          <div class="portfolio-description">
+            <h6><strong>${project.title}</strong></h4>
+            <h7>${project.filter}</h7>
+          </div>
         </div>
         `
     })
