@@ -782,8 +782,22 @@ nav[aria-label="Page navigation"] {
   padding-top: 40px;
 }
 
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
+.portfolio-details .portfolio-details-slider .swiper-slide {
+  height: 45vh; /* 45% of the viewport height */
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Required for absolute positioning */
+  overflow: hidden;
+}
+
+.portfolio-details .portfolio-details-slider .swiper-slide img {
+  max-height: 100%; /* Image height cannot exceed the slide height */
+  width: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Scale down to fit */
+
+  padding: inherit;
+  margin: auto;
+  display: block;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination {

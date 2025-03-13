@@ -25,6 +25,22 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    /* Optional: Add some basic styling */
+    img {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+  
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    .title {
+      color: rgb(146, 6, 50);
+      font-weight: bold;
+    }
+  </style>
 
 </head>
 
@@ -73,7 +89,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Project Details</h2>
+          <h2><strong>Project Details</strong></h2>
           <ol>
             <li><a href="index.html#portfolio">Home</a></li>
             <li>Project Details</li>
@@ -103,14 +119,15 @@
               <ul>
                 <li id="title"><strong>Title</strong>: </li>
                 <li id="category"><strong>Category</strong>: </li>
-                <li id="url"><strong>Project URL</strong>: <a href="#"></a></li>
+                <li id="url"><strong>Project URL</strong>: </li>
+                <li id="key" class="text-justify"><strong>Key</strong>: </li>
               </ul>
             </div>
 
           </div>
           <div class="portfolio-description">
             <h2>Description</h2>
-            <p id="description"></p>
+            <div class="text-justify" id="description"></div>
           </div>
         </div>
 
@@ -170,16 +187,77 @@
     project.breadcrumb.forEach((item, index) => {
       swiper.innerHTML += `
         <div class="swiper-slide">
-          <img src="${item}" alt="">
+          <a href="#" onclick="openPopup('${item}')">
+            <img src="${item}" alt="">
+          </a>
         </div>
       `;
     })
     
-    document.getElementById('title').innerHTML += `${project.title}`;
+    document.getElementById('title').innerHTML += `<span class="title">${project.title}</span>`;
     document.getElementById('category').innerHTML += `${formatFilter(project.filter)}`;
-    document.getElementById('url').innerHTML += `<a href="${project.url}">${project.github}</a>`;
+    if (project.github!==""){
+      document.getElementById('url').innerHTML += `<a href="${project.github}" target="_blank" rel="noopener noreferrer">Link</a>`;
+    }
+    else{
+      document.getElementById('url').innerHTML += `Private project`;
+    }
+    document.getElementById('key').innerHTML += `${project.key}`;
     document.getElementById('description').innerHTML += `${project.desc}`;
 
+    function openPopup(imageSrc) {
+      // Create a pop-up container
+      const popup = document.createElement('div');
+      popup.style.position = 'fixed';
+      popup.style.top = '0';
+      popup.style.left = '0';
+      popup.style.width = '100%';
+      popup.style.height = '100%';
+      popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      popup.style.display = 'flex';
+      popup.style.justifyContent = 'center';
+      popup.style.alignItems = 'center';
+      popup.style.zIndex = '100000';
+
+      // Create the image element for the pop-up
+      const popupImage = document.createElement('img');
+      popupImage.src = imageSrc;
+      popupImage.style.maxWidth = '90%';
+      popupImage.style.maxHeight = '90%';
+      popupImage.style.borderRadius = '8px';
+
+      // Add the image to the pop-up container
+      popup.appendChild(popupImage);
+
+      // Add a close button
+      const closeButton = document.createElement('button');
+      closeButton.innerText = '×';
+      closeButton.style.position = 'absolute';
+      closeButton.style.top = '20px';
+      closeButton.style.right = '20px';
+      closeButton.style.backgroundColor = 'transparent';
+      closeButton.style.border = 'none';
+      closeButton.style.color = 'white';
+      closeButton.style.fontSize = '24px';
+      closeButton.style.cursor = 'pointer';
+
+      // Close the pop-up when the button is clicked
+      closeButton.onclick = function () {
+        document.body.removeChild(popup);
+      };
+
+      popup.appendChild(closeButton);
+
+      // Close the pop-up when clicking outside the image
+      popup.onclick = function (event) {
+        if (event.target === popup) {
+          document.body.removeChild(popup);
+        }
+      };
+
+      // Add the pop-up to the body
+      document.body.appendChild(popup);
+    }
   </script>
 
 </body>
