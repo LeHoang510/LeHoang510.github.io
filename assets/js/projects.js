@@ -62,21 +62,25 @@ const projects = [
     {
       id: "sudoku",
       title: 'Sudoku',
-      img: 'assets/img/projects/Sudoku.png',
-      breadcrumb: ["assets/img/projects/Sudoku.png", "assets/img/projects/Sudoku.png"],
-      desc: "Basic sudoku game",
+      img: 'assets/img/projects/sudoku/error.png',
+      breadcrumb: [
+        "assets/img/projects/sudoku/home.png", 
+        "assets/img/projects/sudoku/board.png",
+        "assets/img/projects/sudoku/error.png",
+      ],
+      desc: "This project involves the development of a web-based Sudoku game with advanced features such as undo/redo functionality and a robust DevOps pipeline for continuous integration and deployment. The game is built using Angular for the frontend and Spring Boot for the backend, providing a seamless and interactive user experience. The second phase of the project focuses on implementing DevOps practices to automate the build, testing, and deployment processes.",
       key: "Angular, Spring boot, HTML, CSS, Bootstrap, Javascript, Typescript, Java, Design Pattern",
-      github: "https://github.com/LeHoang510/Sudoku",
+      github: "https://github.com/LeHoang510/sudoku-devops",
       filter: ["filter-software", "filter-web"]
     },
     {
       id: "sample-app",
       title: 'Sample App',
-      img: 'assets/img/projects/SampleApp.png',
-      breadcrumb: ["assets/img/projects/SampleApp.png"],
-      desc: "Basic social website",
+      img: 'assets/img/projects/sample-app/SampleApp.png',
+      breadcrumb: ["assets/img/projects/sample-app/SampleApp.png"],
+      desc: "This project is a basic social website built using Ruby on Rails, showcasing full-stack web development skills. It includes essential features such as user authentication, profile management, and post creation, providing a solid foundation for building more advanced social networking platforms. The project demonstrates clean, maintainable code and follows best practices in web development.",
       key: "Ruby, Rails, HTML, CSS, Bootstrap, Javascript, MVC Architecture, SQL",
-      github: "https://github.com/LeHoang510/sample-app",
+      github: "https://github.com/LeHoang510/sample_app",
       filter: ["filter-web"]
     }
   ];

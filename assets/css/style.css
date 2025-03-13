@@ -435,16 +435,16 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Language & Skills
+# Language & Interest
 --------------------------------------------------------------*/
-.skills .progress {
+.information .progress {
   height: 60px;
   display: block;
   background: none;
   border-radius: 0;
 }
 
-.skills .progress .skill {
+.information .progress .skill {
   padding: 0;
   margin: 0 0 6px 0;
   text-transform: uppercase;
@@ -454,17 +454,17 @@ section {
   color: #050d18;
 }
 
-.skills .progress .skill .val {
+.information .progress .skill .val {
   float: right;
   font-style: normal;
 }
 
-.skills .progress-bar-wrap {
+.information .progress-bar-wrap {
   background: #dce8f8;
   height: 10px;
 }
 
-.skills .progress-bar {
+.information .progress-bar {
   width: 1px;
   height: 10px;
   transition: 0.9s;
@@ -857,65 +857,46 @@ nav[aria-label="Page navigation"] {
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.card-skill {
-  position: relative;
-  width : 300px;
-  height : 180px;  
-  background-color : #fff;
-  margin : 30px 10px;
-  padding : 20px;
-  
-  display : flex;
-  flex-direction : column;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
-  transition : 0.3s ease-in-out;
-  border-radius : 15px;
-}
 
-.card-skill:hover{
-  height : 220px;    
-}
-
-.card-skill .image {
-  position : relative;
-  width : 260px;
-  height : 260px;
+.skill-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  top : -40%;
-  left: 0px;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.2);
-  z-index : 1;
-  border-radius : 15px;
-  background-color: #f0f0f0;
-  border: 3px solid #5F5C6D;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
 }
 
-.card-skill .image img {
-  max-width : 70%;
-  border-radius : 15px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+.skill-card:hover {
+  transform: translateY(-10px);
 }
 
-.card-skill .content {
-  position : relative;
-  top : -70px;
-  padding : 10px 15px;
-  color : #111;
-  text-align : center;
-  
-  visibility : hidden;
-  opacity : 0;
-  transition : 0.3s ease-in-out;
+.skill-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
 }
 
-.card-skill:hover .content {
-   margin-top : 10px;
-   visibility : visible;
-   opacity : 1;
-   transition-delay: 0.2s;
+
+
+.skill-item li {
+  font-size: 1.1rem;
+  text-align: justify;
 }
+
+/*--------------------------------------------------------------
+# Achievements
+--------------------------------------------------------------*/
+.achievements-list li {
+  font-size: 1.2rem; /* Adjust the size as needed */
+  margin-bottom: 10px; /* Add spacing between list items */
+}
+
+.achievements-list {
+  list-style-type: disc; /* Use bullet points */
+  padding-left: 20px; /* Add some padding for the bullet points */
+}
+
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
