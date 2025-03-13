@@ -10,8 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/Kindred-icon.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -56,7 +55,7 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="index.html" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="index.html#home" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="index.html#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="index.html#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="index.html#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
@@ -76,7 +75,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Project Details</h2>
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#portfolio">Home</a></li>
             <li>Project Details</li>
           </ol>
         </div>
@@ -107,18 +106,16 @@
                 <li id="url"><strong>Project URL</strong>: <a href="#"></a></li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>Description</h2>
-              <p id="description"></p>
-            </div>
-          </div>
 
+          </div>
+          <div class="portfolio-description">
+            <h2>Description</h2>
+            <p id="description"></p>
+          </div>
         </div>
 
       </div>
     </section><!-- End Portfolio Details Section -->
-
-    <button onclick="goBack()">Go Back</button>
     </main><!-- End #main -->
     
 
@@ -153,9 +150,6 @@
   <script src="assets/js/portfolio-details.js"></script>
 
   <script>
-    function goBack() {
-      window.location.href = "index.html#portfolio";
-    }
     function getObjectById(id, list) {
       return list.find(item => item.id === id);
     }
