@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - iPortfolio Bootstrap Template</title>
+  <title>Portfolio Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -74,10 +74,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfoio Details</h2>
+          <h2>Project Details</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Portfoio Details</li>
+            <li>Project Details</li>
           </ol>
         </div>
 
@@ -93,19 +93,6 @@
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-                </div>
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -115,17 +102,14 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li id="title"><strong>Title</strong>: </li>
+                <li id="category"><strong>Category</strong>: </li>
+                <li id="url"><strong>Project URL</strong>: <a href="#"></a></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
+              <h2>Description</h2>
+              <p id="description"></p>
             </div>
           </div>
 
@@ -133,8 +117,7 @@
 
       </div>
     </section><!-- End Portfolio Details Section -->
-    <h1>Welcome to the New Page!</h1>
-    <p>This is the new HTML file.</p>
+
     <button onclick="goBack()">Go Back</button>
     </main><!-- End #main -->
     
@@ -166,13 +149,43 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/portfolio-details.js"></script>
 
   <script>
     function goBack() {
-      // Navigate back to the original page
       window.location.href = "index.html#portfolio";
     }
+    function getObjectById(id, list) {
+      return list.find(item => item.id === id);
+    }
+    const formatFilter = (filterString) => {
+      return filterString
+        .join(",")
+        .split(",") // Split by comma
+        .map(f => f.replace("filter-", "")) // Remove "filter-" and capitalize
+        .join(", "); // Join back into a string
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get('project-id');
+
+    const project = getObjectById(projectId, projects);
+
+    const swiper = document.querySelector('.swiper-wrapper');
+    project.breadcrumb.forEach((item, index) => {
+      swiper.innerHTML += `
+        <div class="swiper-slide">
+          <img src="${item}" alt="">
+        </div>
+      `;
+    })
+    
+    document.getElementById('title').innerHTML += `${project.title}`;
+    document.getElementById('category').innerHTML += `${formatFilter(project.filter)}`;
+    document.getElementById('url').innerHTML += `<a href="${project.url}">${project.github}</a>`;
+    document.getElementById('description').innerHTML += `${project.desc}`;
+
   </script>
 
 </body>

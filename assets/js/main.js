@@ -1,11 +1,3 @@
-/**
-* Template Name: iPortfolio
-* Updated: Nov 17 2023 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
   
@@ -162,120 +154,6 @@
   /**
    * Define projects
    */
-  const projects = [
-    {
-      title: 'Image Retrieval System',
-      img: 'assets/img/projects/AI/HCMAI.png',
-      desc: "A system that can retrieve images from a database based on the user's input image",
-      key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
-      github: "https://github.com/LeHoang510/Image-Retrieval-System",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'End-to-End Machine Learning Pipeline',
-      img: 'assets/img/projects/AI/MLOPSVN.png',
-      desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
-      key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
-      github: "https://github.com/LeHoang510/MLOPSVN",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'xAI for GAN',
-      img: 'assets/img/projects/AI/XAIGAN.jpg',
-      desc: "Explainable AI for Generative Adversarial Networks",
-      key: "GAN, XAI, Python, Computer Vision, Pytorch",
-      github: "https://github.com/LeHoang510/XAI-for-GAN",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'Sleep detection',
-      img: 'assets/img/projects/AI/SleepDetection.png',
-      desc: "Sleep detection",
-      key: "Time series, Sklearn, Pandas, Polars, Numpy, Matplotlib, Seaborn",
-      github: "https://github.com/LeHoang510/Sleep-detection",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'Image Retrieval System',
-      img: 'assets/img/projects/AI/HCMAI.png',
-      desc: "A system that can retrieve images from a database based on the user's input image",
-      key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
-      github: "https://github.com/LeHoang510/Image-Retrieval-System",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'End-to-End Machine Learning Pipeline',
-      img: 'assets/img/projects/AI/MLOPSVN.png',
-      desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
-      key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
-      github: "https://github.com/LeHoang510/MLOPSVN",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'xAI for GAN',
-      img: 'assets/img/projects/AI/XAIGAN.jpg',
-      desc: "Explainable AI for Generative Adversarial Networks",
-      key: "GAN, XAI, Python, Computer Vision, Pytorch",
-      github: "https://github.com/LeHoang510/XAI-for-GAN",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'Sleep detection',
-      img: 'assets/img/projects/AI/SleepDetection.png',
-      desc: "Sleep detection",
-      key: "Time series, Sklearn, Pandas, Polars, Numpy, Matplotlib, Seaborn",
-      github: "https://github.com/LeHoang510/Sleep-detection",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'Image Retrieval System',
-      img: 'assets/img/projects/AI/HCMAI.png',
-      desc: "A system that can retrieve images from a database based on the user's input image",
-      key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
-      github: "https://github.com/LeHoang510/Image-Retrieval-System",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'End-to-End Machine Learning Pipeline',
-      img: 'assets/img/projects/AI/MLOPSVN.png',
-      desc: "A pipeline for the data processing, model training, model deployment of machine learning systems",
-      key: "Feast, MLflow, Bentoml, Docker, Python, Machine Learning, Airflow, Gitlab CI/CD, AWS, Sklearn",
-      github: "https://github.com/LeHoang510/MLOPSVN",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'xAI for GAN',
-      img: 'assets/img/projects/AI/XAIGAN.jpg',
-      desc: "Explainable AI for Generative Adversarial Networks",
-      key: "GAN, XAI, Python, Computer Vision, Pytorch",
-      github: "https://github.com/LeHoang510/XAI-for-GAN",
-      filter: ["filter-ai"]
-    },
-    {
-      title: 'Sleep detection',
-      img: 'assets/img/projects/AI/SleepDetection.png',
-      desc: "Sleep detection",
-      key: "Time series, Sklearn, Pandas, Polars, Numpy, Matplotlib, Seaborn",
-      github: "https://github.com/LeHoang510/Sleep-detection",
-      filter: ["filter-ai", "filter-web"]
-    },
-    {
-      title: 'Sudoku',
-      img: 'assets/img/projects/Web/Sudoku.png',
-      desc: "Basic sudoku game",
-      key: "Angular, Spring boot, HTML, CSS, Bootstrap, Javascript, Typescript, Java, Design Pattern",
-      github: "https://github.com/LeHoang510/Sudoku",
-      filter: ["filter-software"]
-    },
-    {
-      title: 'Sample App',
-      img: 'assets/img/projects/Web/Sample-app.png',
-      desc: "Basic social website",
-      key: "Ruby, Rails, HTML, CSS, Bootstrap, Javascript, MVC Architecture, SQL",
-      github: "https://github.com/LeHoang510/sample-app",
-      filter: ["filter-web", "filter-ai"]
-    }
-  ]
 
   const portfolioContainer = document.querySelector('.portfolio-container');
   const filters = document.querySelectorAll('#portfolio-flters li');
@@ -307,17 +185,14 @@
       item.classList.add('animate-out');
     });
   
-    // Wait for the transition to complete before removing the items
-    setTimeout(() => {
-      // Clear the container
-      portfolioContainer.innerHTML = '';
+    portfolioContainer.innerHTML = '';
   
       // Add new items with animate-in class
       paginatedProjects.forEach(project => {
         const projectItem = document.createElement('div');
         projectItem.className = `col-lg-3 col-md-6 col-sm-12 portfolio-item animate-in ${project.filter}`;
         projectItem.innerHTML = `
-          <a href="portfolio-details.html" class="portfolio-link"> 
+          <a href="portfolio-details.html?project-id=${project.id}" class="portfolio-link"> 
             <div class="portfolio-wrap">
               <img src="${project.img}" class="portfolio-img" alt="">     
               <img src="assets/img/icon/eye.png" class="icon-overlay" alt="">
@@ -340,7 +215,6 @@
   
       // Update pagination
       updatePagination(filteredProjects.length, page);
-    }, 500); // Match this delay with the CSS transition duration
   }
   
   // Function to update pagination
@@ -378,30 +252,7 @@
   // Initial render
   renderProjects(currentFilter, currentPage);
 
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
+  
   /**
    * Testimonials slider
    */
