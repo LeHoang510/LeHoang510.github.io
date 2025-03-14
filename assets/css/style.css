@@ -923,16 +923,28 @@ nav[aria-label="Page navigation"] {
 }
 
 .certification-item p {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #6b7280;
 }
 
-.certification-item .credential {
-  font-size: 0.875rem;
-  color: #3b82f6;
-  text-decoration: underline;
-  cursor: pointer;
+.credential {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+
+  border-radius: 50px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: grey;
+  padding: 10px;
+  box-shadow: 10op 4px 6px rgba(0, 0, 0, 0.1);;
 }
+.credential:active {
+  transition: transform 90ms;
+  transform: scale(0.95);
+}
+
 
 /*--------------------------------------------------------------
 # Services

@@ -2,8 +2,8 @@
 const projects = [
     {
       id: "image-retrieval-system",
-      title: 'Image Retrieval System',
-      img: 'assets/img/projects/image-retrieval-system/retrieval-pipeline.png',
+      title: "Image Retrieval System",
+      img: "assets/img/projects/image-retrieval-system/retrieval-pipeline.png",
       breadcrumb: [
         "assets/img/projects/image-retrieval-system/feature-extraction.png", 
         "assets/img/projects/image-retrieval-system/retrieval-pipeline.png",
@@ -16,8 +16,8 @@ const projects = [
     },
     {
       id: "end-to-end-machine-learning-pipeline",
-      title: 'End-to-End Machine Learning Pipeline',
-      img: 'assets/img/projects/end-to-end-machine-learning-pipeline/pipeline.png',
+      title: "End-to-End Machine Learning Pipeline",
+      img: "assets/img/projects/end-to-end-machine-learning-pipeline/pipeline.png",
       breadcrumb: [
         "assets/img/projects/end-to-end-machine-learning-pipeline/pipeline.png",
         "assets/img/projects/end-to-end-machine-learning-pipeline/airflow_ui.png", 
@@ -30,8 +30,8 @@ const projects = [
     },
     {
       id: "xai-for-gan",
-      title: 'Explainable AI for Generative Adversarial Networks (GANs)',
-      img: 'assets/img/projects/xai-for-gan/GAN model.png',
+      title: "Explainable AI for Generative Adversarial Networks (GANs)",
+      img: "assets/img/projects/xai-for-gan/GAN model.png",
       breadcrumb: [
         "assets/img/projects/xai-for-gan/GAN model.png", 
         "assets/img/projects/xai-for-gan/Training loss.png",
@@ -45,8 +45,8 @@ const projects = [
     },
     {
       id: "sleep-detection",
-      title: 'Sleep detection',
-      img: 'assets/img/projects/sleep-detection/prediction.png',
+      title: "Sleep detection",
+      img: "assets/img/projects/sleep-detection/prediction.png",
       breadcrumb: [
         "assets/img/projects/sleep-detection/missing.png", 
         "assets/img/projects/sleep-detection/density.png",
@@ -61,8 +61,8 @@ const projects = [
     },
     {
       id: "sudoku",
-      title: 'Sudoku',
-      img: 'assets/img/projects/sudoku/error.png',
+      title: "Sudoku",
+      img: "assets/img/projects/sudoku/error.png",
       breadcrumb: [
         "assets/img/projects/sudoku/home.png", 
         "assets/img/projects/sudoku/board.png",
@@ -75,8 +75,8 @@ const projects = [
     },
     {
       id: "sample-app",
-      title: 'Sample App',
-      img: 'assets/img/projects/sample-app/SampleApp.png',
+      title: "Sample App",
+      img: "assets/img/projects/sample-app/SampleApp.png",
       breadcrumb: ["assets/img/projects/sample-app/SampleApp.png"],
       desc: "This project is a basic social website built using Ruby on Rails, showcasing full-stack web development skills. It includes essential features such as user authentication, profile management, and post creation, providing a solid foundation for building more advanced social networking platforms. The project demonstrates clean, maintainable code and follows best practices in web development.",
       key: "Ruby, Rails, HTML, CSS, Bootstrap, Javascript, MVC Architecture, SQL",

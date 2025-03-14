@@ -187,34 +187,34 @@
   
     portfolioContainer.innerHTML = '';
   
-      // Add new items with animate-in class
-      paginatedProjects.forEach(project => {
-        const projectItem = document.createElement('div');
-        projectItem.className = `col-lg-3 col-md-6 col-sm-12 portfolio-item animate-in ${project.filter}`;
-        projectItem.innerHTML = `
-          <a href="portfolio-details.html?project-id=${project.id}" class="portfolio-link"> 
-            <div class="portfolio-wrap">
-              <img src="${project.img}" class="portfolio-img" alt="">     
-              <img src="assets/img/icon/eye.png" class="icon-overlay" alt="">
-            </div>
-          </a>
-          <div class="portfolio-description">
-            <h6><strong>${project.title}</strong></h6>
+    // Add new items with animate-in class
+    paginatedProjects.forEach(project => {
+      const projectItem = document.createElement('div');
+      projectItem.className = `col-lg-3 col-md-6 col-sm-12 portfolio-item animate-in ${project.filter}`;
+      projectItem.innerHTML = `
+        <a href="portfolio-details.html?project-id=${project.id}" class="portfolio-link"> 
+          <div class="portfolio-wrap">
+            <img src="${project.img}" class="portfolio-img" alt="">     
+            <img src="assets/img/icon/eye.png" class="icon-overlay" alt="">
           </div>
-        `;
-        portfolioContainer.appendChild(projectItem);
+        </a>
+        <div class="portfolio-description">
+          <h6><strong>${project.title}</strong></h6>
+        </div>
+      `;
+      portfolioContainer.appendChild(projectItem);
+    });
+
+    // Trigger the animate-in transition
+    setTimeout(() => {
+      const newItems = portfolioContainer.querySelectorAll('.portfolio-item');
+      newItems.forEach(item => {
+        item.classList.add('active');
       });
-  
-      // Trigger the animate-in transition
-      setTimeout(() => {
-        const newItems = portfolioContainer.querySelectorAll('.portfolio-item');
-        newItems.forEach(item => {
-          item.classList.add('active');
-        });
-      }, 50); // Small delay to ensure the DOM has updated
-  
-      // Update pagination
-      updatePagination(filteredProjects.length, page);
+    }, 50); // Small delay to ensure the DOM has updated
+
+    // Update pagination
+    updatePagination(filteredProjects.length, page);
   }
   
   // Function to update pagination
@@ -252,6 +252,27 @@
   // Initial render
   renderProjects(currentFilter, currentPage);
 
+  certifications.forEach(certification => {
+    const certificationItem = document.createElement('div');
+    certificationItem.className = 'certification-item';
+    certificationItem.innerHTML = `
+      <div style="display: flex; gap: 10px; align-items: stretch;">
+        <img src="${certification.img}" alt="" style="height: 100%; width: auto; object-fit: cover; border-radius: 5px;" >
+        <div>
+          <h3>${certification.title}</h3>
+          <p>${certification.desc}</p>
+          <p>${certification.issue}</p>
+        </div>
+      </div>
+
+      <button class="credential"><strong>Show credential</strong> <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+    `;
+    const button = certificationItem.querySelector('.credential');
+    button.addEventListener('click', () => {
+        window.open(certification.link, '_blank'); // Open the link in a new tab
+    });
+    document.querySelector('.certification-items').appendChild(certificationItem);
+  });
   
   /**
    * Testimonials slider
