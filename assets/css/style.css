@@ -703,11 +703,11 @@ section {
 }
 
 /* Navigation and Pagination*/
-nav[aria-label="Page navigation"] {
+.portfolio [aria-label="Page navigation"] {
   margin-bottom: 10px;
 }
 
-.pagination {
+.portfolio .pagination {
   display: flex;
   justify-content: center;
   list-style: none;
@@ -715,11 +715,11 @@ nav[aria-label="Page navigation"] {
   margin: 0;
 }
 
-.pagination .page-item {
+.portfolio .pagination .page-item {
   margin: 0 0; 
 }
 
-.pagination .page-link {
+.portfolio .pagination .page-link {
   display: block;
   padding: 8px 16px;
   color: #333; 
@@ -730,18 +730,18 @@ nav[aria-label="Page navigation"] {
   transition: all 0.3s ease-in-out; 
 }
 
-.pagination .page-link:hover {
+.portfolio .pagination .page-link:hover {
   background-color: #e9ecef;
   border-color: #ddd;
 }
 
-.pagination .page-item.active .page-link {
+.portfolio .pagination .page-item.active .page-link {
   color: #fff;
   background-color: #149ddd; 
   border-color: #149ddd; 
 }
 
-.pagination .page-item.disabled .page-link {
+.portfolio .pagination .page-item.disabled .page-link {
   color: #6c757d; 
   background-color: #f8f9fa; 
   border-color: #ddd; 
