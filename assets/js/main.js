@@ -256,8 +256,8 @@
     const certificationItem = document.createElement('div');
     certificationItem.className = 'certification-item';
     certificationItem.innerHTML = `
-      <div style="display: flex; gap: 10px; align-items: stretch;">
-        <img src="${certification.img}" alt="" style="height: 100%; width: auto; object-fit: cover; border-radius: 5px;" >
+      <div class="certification-content">
+        <img src="${certification.img}" alt="" >
         <div>
           <h3>${certification.title}</h3>
           <p>${certification.desc}</p>
@@ -265,44 +265,15 @@
         </div>
       </div>
 
-      <button class="credential"><strong>Show credential</strong> <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+      <button class="credential-button"><strong>Show credential</strong> <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
     `;
-    const button = certificationItem.querySelector('.credential');
+    const button = certificationItem.querySelector('.credential-button');
     button.addEventListener('click', () => {
-        window.open(certification.link, '_blank'); // Open the link in a new tab
+        window.open(certification.link, '_blank');
     });
     document.querySelector('.certification-items').appendChild(certificationItem);
   });
   
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
   /**
    * Animation on scroll
    */
