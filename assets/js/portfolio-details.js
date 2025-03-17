@@ -98,58 +98,45 @@
   document.getElementById('key').innerHTML += `${project.key}`;
   document.getElementById('description').innerHTML += `${project.desc}`;
   
-  window.openPopup = function(imageSrc) {
+  window.openPopup = function (imageSrc) {
     // Create a pop-up container
-    const popup = document.createElement('div');
-    popup.style.position = 'fixed';
-    popup.style.top = '0';
-    popup.style.left = '0';
-    popup.style.width = '100%';
-    popup.style.height = '100%';
-    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    popup.style.display = 'flex';
-    popup.style.justifyContent = 'center';
-    popup.style.alignItems = 'center';
-    popup.style.zIndex = '100000';
-
+    const popup = document.createElement("div");
+    popup.classList.add("popup-container");
+  
     // Create the image element for the pop-up
-    const popupImage = document.createElement('img');
+    const popupImage = document.createElement("img");
     popupImage.src = imageSrc;
-    popupImage.style.maxWidth = '90%';
-    popupImage.style.maxHeight = '90%';
-    popupImage.style.borderRadius = '8px';
-
+    popupImage.classList.add("popup-image");
+  
     // Add the image to the pop-up container
     popup.appendChild(popupImage);
-
+  
     // Add a close button
-    const closeButton = document.createElement('button');
-    closeButton.innerText = '×';
-    closeButton.style.position = 'absolute';
-    closeButton.style.top = '20px';
-    closeButton.style.right = '20px';
-    closeButton.style.backgroundColor = 'transparent';
-    closeButton.style.border = 'none';
-    closeButton.style.color = 'white';
-    closeButton.style.fontSize = '24px';
-    closeButton.style.cursor = 'pointer';
-
+    const closeButton = document.createElement("button");
+    closeButton.innerText = "×";
+    closeButton.classList.add("popup-close-button");
+  
     // Close the pop-up when the button is clicked
     closeButton.onclick = function () {
-      document.body.removeChild(popup);
+      popup.classList.add("exit"); // Add exit animation
+      setTimeout(() => {
+        document.body.removeChild(popup);
+      }, 200); // Wait for the animation to finish (0.3s)
     };
-
+  
     popup.appendChild(closeButton);
-
+  
     // Close the pop-up when clicking outside the image
     popup.onclick = function (event) {
       if (event.target === popup) {
-        document.body.removeChild(popup);
+        popup.classList.add("exit"); // Add exit animation
+        setTimeout(() => {
+          document.body.removeChild(popup);
+        }, 200); // Wait for the animation to finish (0.3s)
       }
     };
-
+  
     // Add the pop-up to the body
     document.body.appendChild(popup);
-  }
-
+  };
 })();
