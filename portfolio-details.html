@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/Kindred-icon.png" rel="icon">
+  <link href="assets/img/kindred-icon.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -24,24 +24,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <style>
-    /* Optional: Add some basic styling */
-    img {
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-  
-    img:hover {
-      transform: scale(1.02);
-    }
-
-    .title {
-      color: rgb(146, 6, 50);
-      font-weight: bold;
-    }
-  </style>
-
+  <link href="assets/css/portfolio-details.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,20 +35,14 @@
   <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
-
       <div class="profile">
         <img src="assets/img/profile-img.png" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="index.html">Nguyen Le Hoang</a></h1>
         <div class="social-links mt-3 text-center">
-          <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> 
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        -->
           <a href="mailto:lehoangnguyen510@gmail.com" target="_blank" rel="noopener noreferrer" class="gmail"><i class="bx bxl-gmail"></i></a>
           <a href="https://www.linkedin.com/in/lehoangnguyen510/" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="bx bxl-linkedin"></i></a>
           <a href="https://github.com/LeHoang510" target="_blank" rel="noopener noreferrer" class="github"><i class="bx bxl-github"></i></a>
           <a href="NGUYEN_Le_Hoang_CV.pdf" target="_blank" rel="noopener noreferrer" class="github"><i class="bx bxs-file-pdf"></i></a>
-
         </div>
       </div>
 
@@ -78,16 +55,15 @@
           <li><a href="index.html#achievements" class="nav-link scrollto"><i class="bx bx-trophy"></i> <span>Achievements</span></a></li>
           <li><a href="index.html#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav>
     </div>
-  </header><!-- End Header -->
+  </header>
+  <!-- End Header -->
 
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
           <h2><strong>Project Details</strong></h2>
           <ol>
@@ -95,14 +71,13 @@
             <li>Project Details</li>
           </ol>
         </div>
-
       </div>
-    </section><!-- End Breadcrumbs -->
+    </section>
+    <!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
         <div class="row gy-4">
 
           <div class="col-lg-8">
@@ -123,20 +98,18 @@
                 <li id="key" class="text-justify"><strong>Key</strong>: </li>
               </ul>
             </div>
-
           </div>
+
           <div class="portfolio-description">
             <h2>Description</h2>
-            <div class="text-justify" id="description"></div>
+            <p class="text-justify" id="description"></p>
           </div>
+
         </div>
-
       </div>
-    </section><!-- End Portfolio Details Section -->
-    </main><!-- End #main -->
-
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    </section>
+    <!-- End Portfolio Details Section -->
+  </main>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -152,100 +125,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/data/projects.js"></script>
   <script src="assets/js/portfolio-details.js"></script>
-
-  <script>
-    function getObjectById(id, list) {
-      return list.find(item => item.id === id);
-    }
-    const formatFilter = (filterString) => {
-      return filterString
-        .join(",")
-        .split(",") // Split by comma
-        .map(f => f.replace("filter-", "")) // Remove "filter-" and capitalize
-        .join(", "); // Join back into a string
-    };
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('project-id');
-
-    const project = getObjectById(projectId, projects);
-
-    const swiper = document.querySelector('.swiper-wrapper');
-    project.breadcrumb.forEach((item, index) => {
-      swiper.innerHTML += `
-        <div class="swiper-slide">
-          <a href="#" onclick="openPopup('${item}')">
-            <img src="${item}" alt="">
-          </a>
-        </div>
-      `;
-    })
-    
-    document.getElementById('title').innerHTML += `<span class="title">${project.title}</span>`;
-    document.getElementById('category').innerHTML += `${formatFilter(project.filter)}`;
-    if (project.github!==""){
-      document.getElementById('url').innerHTML += `<a href="${project.github}" target="_blank" rel="noopener noreferrer">Link</a>`;
-    }
-    else{
-      document.getElementById('url').innerHTML += `Private project`;
-    }
-    document.getElementById('key').innerHTML += `${project.key}`;
-    document.getElementById('description').innerHTML += `${project.desc}`;
-
-    function openPopup(imageSrc) {
-      // Create a pop-up container
-      const popup = document.createElement('div');
-      popup.style.position = 'fixed';
-      popup.style.top = '0';
-      popup.style.left = '0';
-      popup.style.width = '100%';
-      popup.style.height = '100%';
-      popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-      popup.style.display = 'flex';
-      popup.style.justifyContent = 'center';
-      popup.style.alignItems = 'center';
-      popup.style.zIndex = '100000';
-
-      // Create the image element for the pop-up
-      const popupImage = document.createElement('img');
-      popupImage.src = imageSrc;
-      popupImage.style.maxWidth = '90%';
-      popupImage.style.maxHeight = '90%';
-      popupImage.style.borderRadius = '8px';
-
-      // Add the image to the pop-up container
-      popup.appendChild(popupImage);
-
-      // Add a close button
-      const closeButton = document.createElement('button');
-      closeButton.innerText = '×';
-      closeButton.style.position = 'absolute';
-      closeButton.style.top = '20px';
-      closeButton.style.right = '20px';
-      closeButton.style.backgroundColor = 'transparent';
-      closeButton.style.border = 'none';
-      closeButton.style.color = 'white';
-      closeButton.style.fontSize = '24px';
-      closeButton.style.cursor = 'pointer';
-
-      // Close the pop-up when the button is clicked
-      closeButton.onclick = function () {
-        document.body.removeChild(popup);
-      };
-
-      popup.appendChild(closeButton);
-
-      // Close the pop-up when clicking outside the image
-      popup.onclick = function (event) {
-        if (event.target === popup) {
-          document.body.removeChild(popup);
-        }
-      };
-
-      // Add the pop-up to the body
-      document.body.appendChild(popup);
-    }
-  </script>
 
 </body>
 
