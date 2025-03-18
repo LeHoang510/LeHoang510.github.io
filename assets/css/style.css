@@ -775,35 +775,35 @@ section {
 }
 
 .portfolio .pagination .page-item {
-  margin: 0 0; 
+  margin: 0; 
 }
 
 .portfolio .pagination .page-link {
   display: block;
   padding: 8px 16px;
-  color: #333; 
-  background-color: #f8f9fa; 
-  border: 1px solid #ddd; 
-  border-radius: 4px; 
+  color: var(--black-theme); 
+  background-color: var(--darker-gray-theme); 
+  border: 1px solid var(--white-theme); 
+  border-radius: 5px; 
   text-decoration: none;
   transition: all 0.3s ease-in-out; 
 }
 
 .portfolio .pagination .page-link:hover {
-  background-color: #e9ecef;
-  border-color: #ddd;
+  background-color: var(--gray-theme);
+  border-color: var(--white-theme);
 }
 
 .portfolio .pagination .page-item.active .page-link {
-  color: #fff;
-  background-color: #149ddd; 
-  border-color: #149ddd; 
+  color: var(--white-theme);
+  background-color: var(--blue-theme); 
+  border-color: var(--blue-theme); 
 }
 
 .portfolio .pagination .page-item.disabled .page-link {
-  color: #6c757d; 
-  background-color: #f8f9fa; 
-  border-color: #ddd; 
+  color: var(--disabled-text-color); 
+  background-color: var(--gray-theme); 
+  border-color: var(--white-theme); 
   pointer-events: none;
 }
 
