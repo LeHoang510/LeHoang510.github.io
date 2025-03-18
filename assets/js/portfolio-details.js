@@ -77,7 +77,7 @@
   const project = getObjectById(projectId, projects);
 
   const swiper = document.querySelector('.swiper-wrapper');
-  project.breadcrumb.forEach((item, index) => {
+  project.carousel.forEach((item, index) => {
     swiper.innerHTML += `
       <div class="swiper-slide">
         <a href="#" onclick="openPopup('${item}')">
