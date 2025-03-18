@@ -199,7 +199,7 @@
           </div>
         </a>
         <div class="portfolio-description">
-          <h6><strong>${project.title}</strong></h6>
+          <p><strong>${project.title}</strong></p>
         </div>
       `;
       portfolioContainer.appendChild(projectItem);
@@ -286,8 +286,4 @@
     })
   });
 
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
 })()
