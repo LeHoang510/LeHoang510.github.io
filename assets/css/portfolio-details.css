@@ -243,6 +243,54 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 20px 0;
+  background: var(--gray-theme);
+}
+
+.breadcrumbs h2 {
+  font-size: var(--section-font-size);
+  font-weight: 300;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-size-medium);
+}
+
+.breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: var(--timeline-color);
+  content: "/";
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+
+  .breadcrumbs ol {
+    display: block;
+  }
+
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
+
+
+/*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
 .portfolio-details {
@@ -311,8 +359,8 @@ h6 {
   border-bottom: 1px solid var(--white-theme);
 }
 
-.portfolio-details .title {
-  color: rgb(146, 6, 50);
+.portfolio-details .portfolio-info .title {
+  color: var(--red-title-color);
   font-weight: bold;
 }
 
@@ -328,7 +376,6 @@ h6 {
 
 .portfolio-details .portfolio-description {
   padding-top: 30px;
-  font-size: var(--font-size-small);
 }
 
 .portfolio-details .portfolio-description h2 {
@@ -341,54 +388,6 @@ h6 {
   padding: 0;
   font-size: var(--font-size-medium);
 }
-
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
-.breadcrumbs {
-  padding: 20px 0;
-  background: var(--gray-theme);
-}
-
-.breadcrumbs h2 {
-  font-size: var(--title-font-size);
-  font-weight: 300;
-}
-
-.breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: var(--font-size-small);
-}
-
-.breadcrumbs ol li+li {
-  padding-left: 10px;
-}
-
-.breadcrumbs ol li+li::before {
-  display: inline-block;
-  padding-right: 10px;
-  color: var(--timeline-color);
-  content: "/";
-}
-
-@media (max-width: 768px) {
-  .breadcrumbs .d-flex {
-    display: block !important;
-  }
-
-  .breadcrumbs ol {
-    display: block;
-  }
-
-  .breadcrumbs ol li {
-    display: inline-block;
-  }
-}
-
 
 /*--------------------------------------------------------------
 # Popup Container
