@@ -57,6 +57,7 @@ const projects = [
       "assets/img/projects/pet-segmentation/Figure_9.png",
     ],
     desc: "This project focuses on building a U-Net model for image segmentation using the Oxford-IIIT Pet Dataset",
+    key: "U-Net, Python, Computer Vision, Pytorch",
     github: "https://github.com/LeHoang510/U-net-Segmentation",
     filter: ["filter-ai"]
   },
@@ -73,6 +74,20 @@ const projects = [
     key: "CLIP, FAISS, Flask, NLP, Computer Vision, Object detection, ASR, Python",
     github: "",
     filter: ["filter-ai", "filter-software", "filter-web"]
+  },
+  {
+    id: "knowledge-distillation",
+    title: "Knowledge Distillation for Weather Classification",
+    img: "assets/img/projects/knowledge-distillation/kd_figure.png",
+    carousel: [
+      "assets/img/projects/knowledge-distillation/kd_figure.png", 
+      "assets/img/projects/knowledge-distillation/loss.png",
+      "assets/img/projects/knowledge-distillation/accuracy.png"
+    ],
+    desc: "This project implements knowledge distillation (KD) techniques to improve model training efficiency by transferring knowledge from a larger teacher model to a more compact student model. The implementation focuses on response-based knowledge distillation for weather classification across 11 weather types.",
+    key: "ResNet, DenseNet, Pytorch, Pillow, Computer Vision",
+    github: "https://github.com/LeHoang510/Knowledge-Distillation-Basic",
+    filter: ["filter-ai"]
   },
   {
     id: "end-to-end-machine-learning-pipeline",
