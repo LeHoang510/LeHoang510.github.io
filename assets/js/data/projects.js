@@ -1,6 +1,18 @@
 // projects-data.js
 const projects = [
   {
+    id: "deeplearning-baseline",
+    title: "Deep Learning Baseline",
+    img: "assets/img/projects/deeplearning-baseline/dl-template-readme.png",
+    carousel: [
+      "assets/img/projects/deeplearning-baseline/dl-template-readme.png"
+    ],
+    desc: "This is a modular and scalable setup template for deep learning projects, designed to improve code readability, reusability, and development speed\nKey features:\n<ul><li>Well-structured project layout for clear separation of concerns</li><li>Modular structure for easy navigation and maintenance: dataset loading, model definition, training, evaluation, and inference</li><li>YAML-based configuration system for flexible experimentation</li><li>Integrated logging and visualization tools</li><li>Support for multiple deep learning frameworks</li><li>Comprehensive documentation and examples</li><li>Easy to extend, understand, and integrate into new or existing workflows</li>\nThis template serves as a foundation for building robust deep learning applications, enabling developers to focus on model development rather than boilerplate code.",
+    key: "Python, Pytorch, MNIST, Deep Learning, Computer Vision",
+    github: "https://github.com/LeHoang510/DeepLearningBaseline",
+    filter: ["filter-ai", "filter-software"]
+  },
+  {
     id: "capfilt",
     title: "CapFilt",
     img: "assets/img/projects/capfilt/Feature_Extraction_Pipeline.png",
